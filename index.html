@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搳擊襄 | 2026 暑期精英打擊樂課程 &amp; 珠海特訓 Tour</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;family=Noto+Sans+TC:wght@400;500;700&amp;display=swap');
+        
+        :root {
+            --deep-blue: #0A2540;
+            --gold: #C9A227;
+        }
+        
+        body {
+            font-family: 'Noto Sans TC', system-ui, -apple-system, sans-serif;
+        }
+        
+        .serif-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 700;
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, #C9A227, #D4AF37);
+            border-radius: 3px;
+        }
+
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #C9A227;
+            transform: translateY(-1px);
+        }
+
+        .course-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .course-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        .gold-accent {
+            color: #C9A227;
+        }
+
+        .deep-blue-bg {
+            background-color: #0A2540;
+        }
+
+        .premium-gradient {
+            background: linear-gradient(135deg, #0A2540 0%, #1a3a5c 100%);
+        }
+
+        .elegant-btn {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .elegant-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -100%;
+            width: 50%;
+            height: 200%;
+            background: linear-gradient(
+                to right,
+                transparent 20%,
+                rgba(255,255,255,0.3) 50%,
+                transparent 80%
+            );
+            transition: left 0.6s;
+        }
+        
+        .elegant-btn:hover::after {
+            left: 200%;
+        }
+
+        .stat-number {
+            font-variant-numeric: tabular-nums;
+        }
+
+        .music-bg {
+            background-image: 
+                linear-gradient(rgba(10, 37, 64, 0.85), rgba(10, 37, 64, 0.85)),
+                url('https://picsum.photos/id/1015/2000/1200');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .tri-fold-hint {
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body class="bg-white text-[#0A2540] overflow-x-hidden">
+    <!-- Navbar -->
+    <nav class="bg-white border-b border-gray-100 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex items-center gap-x-3">
+                    <div class="w-11 h-11 bg-[#0A2540] rounded-full flex items-center justify-center">
+                        <i class="fa-solid fa-drum text-[#C9A227] text-2xl"></i>
+                    </div>
+                    <div>
+                        <div class="font-bold text-2xl tracking-tight">搳擊襄</div>
+                        <div class="text-[10px] text-gray-500 -mt-1">TOOLBOX PERCUSSION</div>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-x-9 text-sm font-medium">
+                    <a href="#about" class="nav-link text-[#0A2540] hover:text-[#C9A227]">關於邵老師</a>
+                    <a href="#courses" class="nav-link text-[#0A2540] hover:text-[#C9A227]">暑期課程</a>
+                    <a href="#tour" class="nav-link text-[#0A2540] hover:text-[#C9A227]">珠海特訓 Tour</a>
+                    <a href="#register" class="nav-link text-[#0A2540] hover:text-[#C9A227]">報名方式</a>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="flex items-center gap-x-3">
+                    <a href="#register" 
+                       class="hidden md:inline-flex items-center px-6 py-2.5 bg-[#0A2540] text-white text-sm font-semibold rounded-full hover:bg-[#C9A227] hover:text-[#0A2540] transition-all elegant-btn">
+                        <span>立即報名</span>
+                    </a>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn"
+                            class="md:hidden w-10 h-10 flex items-center justify-center text-[#0A2540]">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-6 py-4 flex flex-col gap-y-3 text-sm font-medium">
+                <a href="#about" class="py-2 nav-link">關於邵老師</a>
+                <a href="#courses" class="py-2 nav-link">暑期課程</a>
+                <a href="#tour" class="py-2 nav-link">珠海特訓 Tour</a>
+                <a href="#register" class="py-2 nav-link">報名方式</a>
+                <a href="#register" 
+                   class="mt-2 inline-flex items-center justify-center px-6 py-3 bg-[#0A2540] text-white text-sm font-semibold rounded-full">
+                    立即報名
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="premium-gradient text-white">
+        <div class="max-w-6xl mx-auto px-6 pt-16 pb-20 md:pt-20 md:pb-24">
+            <div class="grid md:grid-cols-12 gap-10 items-center">
+                <!-- Text Content -->
+                <div class="md:col-span-7">
+                    <div class="inline-flex items-center gap-x-2 px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full mb-6">
+                        <div class="w-2 h-2 bg-[#C9A227] rounded-full animate-pulse"></div>
+                        <span class="text-sm font-medium tracking-[1.5px]">2026 暑期精英計劃</span>
+                    </div>
+                    
+                    <h1 class="text-6xl md:text-7xl leading-[1.05] font-bold tracking-tighter mb-4">
+                        打擊樂的<br>花術探索
+                    </h1>
+                    
+                    <div class="flex items-center gap-x-4 mb-6">
+                        <div>
+                            <div class="text-2xl font-semibold">前澳門樂團首席</div>
+                            <div class="text-4xl font-bold text-[#C9A227]">邵俊傑</div>
+                        </div>
+                    </div>
+                    
+                    <p class="max-w-lg text-xl text-white/90 mb-8">
+                        技巧、聽清與表達 — 暑期精英指導計劃
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#courses" 
+                           class="inline-flex items-center justify-center px-8 py-4 bg-[#C9A227] hover:bg-[#D4AF37] text-[#0A2540] font-semibold rounded-2xl text-lg transition-all elegant-btn">
+                            <span>查看課程詳情</span>
+                        </a>
+                        <a href="#register" 
+                           class="inline-flex items-center justify-center px-8 py-4 border-2 border-white/70 hover:bg-white hover:text-[#0A2540] font-semibold rounded-2xl text-lg transition-all">
+                            <span>立即報名 / 查詢</span>
+                        </a>
+                    </div>
+                    
+                    <div class="mt-8 flex items-center gap-x-6 text-sm">
+                        <div class="flex -space-x-2">
+                            <div class="w-8 h-8 bg-white/20 rounded-full border border-white/40"></div>
+                            <div class="w-8 h-8 bg-white/20 rounded-full border border-white/40"></div>
+                            <div class="w-8 h-8 bg-white/20 rounded-full border border-white/40"></div>
+                        </div>
+                        <!-- 已移除「已有多位中高階學生報名」文字 -->
+                    </div>
+                </div>
+                
+                <!-- Hero Image Placeholder -->
+                <div class="md:col-span-5">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3] border border-white/10">
+                        <img src="https://www.adams-music.com/images/webitems/3/1/C/31C22D8C15DC441CBE8C02EEDE545DBA640.jpg" 
+                             alt="邵俊傑 持鼓槌專業照" 
+                             class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0A2540]/90 via-[#0A2540]/30 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6">
+                            <div class="text-white text-sm font-medium tracking-wider">Adams Percussion × JG Percussion 簽約芸術家</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Trust Bar -->
+    <div class="border-b bg-white">
+        <div class="max-w-6xl mx-auto px-6 py-5">
+            <div class="flex flex-wrap justify-center md:justify-between items-center gap-x-8 gap-y-4 text-sm text-gray-500">
+                <div class="flex items-center gap-x-2">
+                    <i class="fa-solid fa-tachometer-alt text-[#C9A227]"></i>
+                    <span>前澳門樂團首席打擊樂手</span>
+                </div>
+                <div class="flex items-center gap-x-2">
+                    <i class="fa-solid fa-globe text-[#C9A227]"></i>
+                    <span>Adams &amp; JG Percussion 簽約芸術家</span>
+                </div>
+                <div class="flex items-center gap-x-2">
+                    <i class="fa-solid fa-graduation-cap text-[#C9A227]"></i>
+                    <span>香港中文大學客席講師</span>
+                </div>
+                <!-- 已移除 Southbank Centre 相關文字 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="max-w-6xl mx-auto px-6 py-16 md:py-20">
+        <div class="grid md:grid-cols-12 gap-x-12 gap-y-10 items-center">
+            <div class="md:col-span-5">
+                <div class="sticky top-24">
+                    <div class="text-[#C9A227] text-sm font-semibold tracking-[2px] mb-2">ARTISTIC DIRECTOR</div>
+                    <h2 class="section-title text-5xl leading-none font-bold tracking-tighter mb-6">
+                        邵俊傑<br>從樂團首席<br>到花術引導者
+                    </h2>
+                    
+                    <div class="prose prose-lg text-gray-600">
+                        <p>搳擊襄（Toolbox Percussion）花術總監<br>
+                        前澳門樂團首席打擊樂手</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="md:col-span-7 text-[15px] leading-relaxed text-gray-700 space-y-5">
+                <p>邵俊傑畢業於三番市音樂學院（San Francisco Conservatory of Music），並於倫敦中央聖馬丁花術與設計學院（Central Saint Martins, University of the Arts London）取得花術與文化企業碩士學位，曾任三番市交響樂團教學花術家，擁有超過20年國際演出與教學經驗。他曾任澳門樂團首席打擊樂手，與多位著名指揮家及獨奏家合作。</p>
+                
+                <p>邵俊傑相信音樂教育的核心是培養聽清力、表達力與花術視野，而非單純追求技巧或分數。他的學生汎及香港及海外音樂學院預備課程。</p>
+                
+                <p>他曾於天津茱莉亞學院、吉林花術學院、澳洲昆士蘭音樂學院、法國里昂國立高等音樂舞蹈學院、星海音樂學院、華南師範大學，以及韓國首爾漢陽大學等地授課及舉辦大師班，致力將專業舞台經驗轉化為啟發下一代的教學。</p>
+                
+                <div class="pt-4 border-t">
+                    <a href="#courses" class="inline-flex items-center text-[#C9A227] font-semibold group">
+                        了解 2026 暑期精英課程 
+                        <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="bg-[#F8F7F4] py-16 md:py-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <div class="text-[#C9A227] text-sm font-semibold tracking-[2px]">2026 SUMMER ELITE PROGRAM</div>
+                <h2 class="section-title text-5xl font-bold tracking-tighter mt-3">暑期精英課程（6 – 8 月）</h2>
+                <p class="mt-3 text-gray-600 max-w-md mx-auto">所有課程均不包含考試或比賽壓力，專注於提升花術感知與技巧質感。</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                
+                <!-- Card 1: 個人課 -->
+                <div class="course-card bg-white rounded-3xl p-8 shadow-sm border border-gray-100 flex flex-col h-full">
+                    <div>
+                        <div class="w-12 h-12 bg-[#0A2540] text-white rounded-2xl flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-user text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-1">個人課（一對一）</h3>
+                        <p class="text-sm text-gray-500 mb-6">深度打磨演出曲目、技巧細節與音樂表達</p>
+                        
+                        <div class="space-y-3 text-sm">
+                            <div class="flex justify-between"><span>4 堂 × 60 分鐘</span></div>
+                            <div class="flex justify-between items-baseline">
+                                <span class="text-gray-500">每堂</span> 
+                                <span class="text-3xl font-semibold">$1,200</span>
+                            </div>
+                            <div class="flex justify-between items-baseline border-t pt-3">
+                                <span class="font-medium">全期優惠</span> 
+                                <span class="text-3xl font-bold text-[#0A2540]">$4,800</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-auto pt-8">
+                        <div class="text-xs bg-amber-50 text-amber-700 px-3 py-1.5 rounded-full inline-block mb-4">
+                            適合中高階學生（Grade 8 以上 / 文憑 / 音樂學院預備）
+                        </div>
+                        <a href="#register" class="block text-center w-full py-3.5 bg-[#0A2540] hover:bg-[#C9A227] hover:text-[#0A2540] text-white font-semibold rounded-2xl transition">選擇個人課</a>
+                    </div>
+                </div>
+
+                <!-- Card 2: 技巧班 -->
+                <div class="course-card bg-white rounded-3xl p-8 shadow-sm border border-gray-100 flex flex-col h-full">
+                    <div>
+                        <div class="w-12 h-12 bg-[#0A2540] text-white rounded-2xl flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-users text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-1">技巧改進班（小組）</h3>
+                        <p class="text-sm text-gray-500 mb-6">每班僅 4 人，80 分鐘 / 堂，共 4 堂</p>
+                        
+                        <div class="mb-5">
+                            <div class="flex gap-2 text-xs mb-3">
+                                <div class="bg-gray-100 px-3 py-1 rounded-full">初階（5-7級）</div>
+                                <div class="bg-gray-100 px-3 py-1 rounded-full">高階（8級↑）</div>
+                            </div>
+                            <div class="text-sm leading-snug text-gray-600">
+                                聚焦滾奏層次、雙槌平衡、節奏內在律動、樂句呵吸
+                            </div>
+                        </div>
+                        
+                        <div class="border-t pt-5">
+                            <div class="flex justify-between items-baseline">
+                                <div>
+                                    <div class="text-sm text-gray-500">全期</div>
+                                    <div class="text-3xl font-bold">$2,800</div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-xs text-emerald-600 font-medium">早鳥優惠</div>
+                                    <div class="text-2xl font-bold text-emerald-600">$2,600</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-auto pt-8">
+                        <a href="#register" class="block text-center w-full py-3.5 border border-[#0A2540] hover:bg-[#0A2540] hover:text-white font-semibold rounded-2xl transition">選擇技巧班</a>
+                    </div>
+                </div>
+
+                <!-- Card 3: 組合優惠 -->
+                <div class="course-card bg-[#0A2540] text-white rounded-3xl p-8 shadow-xl flex flex-col h-full relative overflow-hidden">
+                    <div class="absolute top-6 right-6 bg-[#C9A227] text-[#0A2540] text-xs font-bold px-4 py-1 rounded-full">最受歡迎</div>
+                    
+                    <div>
+                        <div class="w-12 h-12 bg-white/10 text-[#C9A227] rounded-2xl flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-link text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">組合優惠</h3>
+                        <p class="text-white/70 mb-6">同時報名個人課 + 技巧班</p>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-sm mb-1"><span>個人課原價</span> <span>$4,800</span></div>
+                                <div class="flex justify-between font-medium"><span>組合價</span> <span class="text-[#C9A227]">$4,000</span></div>
+                            </div>
+                            <div class="border-t border-white/20 pt-4">
+                                <div class="flex justify-between items-end">
+                                    <div>
+                                        <div class="text-sm opacity-70">技巧班享早鳥優惠</div>
+                                        <div class="text-4xl font-bold tracking-tighter">$6,600</div>
+                                    </div>
+                                    <div class="text-right text-xs line-through opacity-50">原價 $7,600</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-auto pt-8">
+                        <a href="#register" class="block text-center w-full py-3.5 bg-[#C9A227] hover:bg-white text-[#0A2540] font-bold rounded-2xl transition">立即享組合優惠</a>
+                        <p class="text-center text-xs mt-3 text-white/60">個人課即減 $800</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8 text-sm text-gray-500">
+                課程以廣東話／普通話授課｜地點：香港工作室
+            </div>
+        </div>
+    </section>
+
+    <!-- Timetable Section -->
+    <section id="timetable" class="max-w-6xl mx-auto px-6 py-16 md:py-20 border-t">
+        <div class="text-center mb-12">
+            <div class="text-[#C9A227] text-sm font-semibold tracking-[2px]">SCHEDULE</div>
+            <h2 class="section-title text-5xl font-bold tracking-tighter mt-3">課程時間表</h2>
+            <p class="mt-3 text-gray-600 max-w-md mx-auto">2026 年 6 月至 8 月</p>
+        </div>
+
+        <div class="max-w-4xl mx-auto">
+            <!-- 技巧改進班 -->
+            <div class="bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-gray-100 mb-6">
+                <div class="flex items-center gap-x-3 mb-5">
+                    <div class="w-10 h-10 bg-[#0A2540] text-white rounded-2xl flex items-center justify-center">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold">技巧改進班（小組）</h3>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-x-10 gap-y-6 text-sm">
+                    <div>
+                        <div class="font-semibold text-[#0A2540] mb-2">上課日期</div>
+                        <div class="text-gray-700">7月 20日、27日<br>8月 3日、17日</div>
+                    </div>
+                    <div>
+                        <div class="font-semibold text-[#0A2540] mb-2">時間</div>
+                        <div class="space-y-1 text-gray-700">
+                            <div><span class="font-medium">初階班（5-7級）</span>　10:00 – 11:20</div>
+                            <div><span class="font-medium">高階班（8級↑）</span>　11:30 – 12:50</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tour Ensemble -->
+            <div class="bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-gray-100">
+                <div class="flex items-center gap-x-3 mb-5">
+                    <div class="w-10 h-10 bg-[#C9A227] text-[#0A2540] rounded-2xl flex items-center justify-center">
+                        <i class="fa-solid fa-plane"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold">Tour Ensemble Class 及 珠海特訓 Tour</h3>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-x-10 gap-y-6 text-sm">
+                    <div>
+                        <div class="font-semibold text-[#0A2540] mb-2">Ensemble Class 日期</div>
+                        <div class="text-gray-700">7月 20日、27日<br>8月 3日、10日、17日、20日、21日</div>
+                        <div class="mt-2 text-[#C9A227] font-medium">時間：下午 4:00 – 6:00</div>
+                    </div>
+                    <div>
+                        <div class="font-semibold text-[#0A2540] mb-2">珠海特訓 Tour</div>
+                        <div class="text-gray-700 font-medium">8月 22–23 日（兩日一夜）</div>
+                        <div class="text-xs text-gray-500 mt-1">含合奏排練、大師班、結業音樂會</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-6 text-center text-sm text-gray-600">
+                個人課時間彈性安排，報名後與邵老師確認具體時段
+            </div>
+        </div>
+    </section>
+
+    <!-- Zhuhai Tour Section -->
+    <section id="tour" class="max-w-6xl mx-auto px-6 py-16 md:py-20">
+        <div class="grid md:grid-cols-12 gap-x-10 items-center">
+            <div class="md:col-span-5 mb-10 md:mb-0">
+                <div class="sticky top-24">
+                    <div class="inline-block px-4 py-1 bg-[#C9A227]/10 text-[#C9A227] text-xs font-bold tracking-widest rounded-full mb-4">EXCLUSIVE</div>
+                    <h2 class="section-title text-5xl font-bold tracking-tighter leading-none">搳擊襄<br>大灣區特訓 Tour</h2>
+                    <div class="mt-4 text-2xl font-semibold text-[#C9A227]">珠海　8 月 22-23 日</div>
+                </div>
+            </div>
+            
+            <div class="md:col-span-7">
+                <div class="bg-white border border-gray-100 rounded-3xl p-9">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-sm">
+                        <div>
+                            <div class="font-semibold mb-2 flex items-center gap-x-2"><i class="fa-solid fa-calendar text-[#C9A227]"></i> <span>兩日一夜</span></div>
+                            <ul class="space-y-1.5 text-gray-600">
+                                <li>• 合奏排練</li>
+                                <li>• 大師班</li>
+                                <li>• 結業音樂會</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="font-semibold mb-2 flex items-center gap-x-2"><i class="fa-solid fa-user-check text-[#C9A227]"></i> <span>優先錄取</span></div>
+                            <p class="text-gray-600">技巧班學員優先<br>校外名額有限</p>
+                        </div>
+                        <div>
+                            <div class="font-semibold mb-2">費用</div>
+                            <div class="text-3xl font-bold">$4,500 – $5,500</div>
+                            <div class="text-xs text-gray-500 mt-1">（不含交通住宿，詳情私訊查詢）</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 pt-6 border-t flex flex-col sm:flex-row gap-4">
+                        <a href="#register" class="flex-1 text-center px-6 py-3.5 border border-[#0A2540] hover:bg-[#0A2540] hover:text-white font-semibold rounded-2xl transition">報名珠海 Tour</a>
+                        <a href="#register" class="flex-1 text-center px-6 py-3.5 bg-[#0A2540] text-white font-semibold rounded-2xl transition">先報技巧班享優先</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section id="register" class="deep-blue-bg text-white py-16 md:py-20">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-5xl font-bold tracking-tighter">查詢及報名</h2>
+                <p class="mt-3 text-white/70 max-w-md mx-auto">歡迎發送 30 秒演出錄影，免費獲得邵老師的聽清建議與程度評估</p>
+            </div>
+            
+            <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-9 md:p-12">
+                <div class="grid md:grid-cols-2 gap-x-12 gap-y-10">
+                    
+                    <!-- Contact -->
+                    <div>
+                        <h4 class="font-semibold mb-4 flex items-center gap-x-2"><i class="fa-solid fa-headset"></i> <span>聯絡方式</span></h4>
+                        <div class="space-y-4 text-sm">
+                            <div class="flex items-start gap-x-4">
+                                <i class="fa-brands fa-instagram mt-1 w-5 text-[#C9A227]"></i>
+                                <div>
+                                    <div class="font-medium">小紅書 / Instagram</div>
+                                    <div class="text-white/80">私訊 @390077038（小紅書）</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-x-4">
+                                <i class="fa-solid fa-envelope mt-1 w-5 text-[#C9A227]"></i>
+                                <div>
+                                    <div class="font-medium">電郵</div>
+                                    <div class="text-white/80">louissiu@toolboxpercussion.org</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Steps -->
+                    <div>
+                        <h4 class="font-semibold mb-4">報名流程</h4>
+                        <div class="space-y-4 text-sm">
+                            <div class="flex gap-x-4">
+                                <div class="w-6 h-6 rounded-full bg-[#C9A227] text-[#0A2540] flex-shrink-0 flex items-center justify-center text-xs font-bold">1</div>
+                                <div>私訊「暑期計劃」</div>
+                            </div>
+                            <div class="flex gap-x-4">
+                                <div class="w-6 h-6 rounded-full bg-[#C9A227] text-[#0A2540] flex-shrink-0 flex items-center justify-center text-xs font-bold">2</div>
+                                <div>提交簡單背景（級別／目標）</div>
+                            </div>
+                            <div class="flex gap-x-4">
+                                <div class="w-6 h-6 rounded-full bg-[#C9A227] text-[#0A2540] flex-shrink-0 flex items-center justify-center text-xs font-bold">3</div>
+                                <div>確認適合後繳交留位費</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-10 pt-8 border-t border-white/10 text-center">
+                    <a href="https://wa.me/85265799906?text=我想報名2026暑期精英計劃" 
+                       target="_blank"
+                       class="inline-flex items-center justify-center gap-x-3 px-10 py-4 bg-[#C9A227] hover:bg-white text-[#0A2540] font-bold text-lg rounded-2xl transition-all w-full md:w-auto">
+                        <i class="fa-brands fa-whatsapp text-2xl"></i>
+                        <span>WhatsApp 直接報名</span>
+                    </a>
+                    <p class="text-xs text-white/50 mt-4">或直接私訊小紅書 / IG</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <div class="bg-[#F8F7F4] py-12 border-t">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <h3 class="text-3xl font-bold tracking-tight mb-3">準備好提升你的打擊樂花術嗎？</h3>
+            <p class="text-gray-600 mb-6">名額有限，建議盡早報名。</p>
+            <a href="#register" 
+               class="inline-flex items-center px-10 py-4 bg-[#0A2540] hover:bg-[#C9A227] hover:text-[#0A2540] text-white font-semibold rounded-2xl text-lg transition">
+                立即報名 2026 暑期計劃
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-[#0A2540] text-white/70 py-10 text-sm">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between gap-y-8">
+                <div>
+                    <div class="flex items-center gap-x-3 mb-3">
+                        <div class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center">
+                            <i class="fa-solid fa-drum text-[#C9A227]"></i>
+                        </div>
+                        <span class="font-bold text-white text-lg">搳擊襄 Toolbox Percussion</span>
+                    </div>
+                    <div>香港 · 珠海</div>
+                </div>
+                
+                <div class="text-xs md:text-right leading-relaxed">
+                    邵俊傑 ¦ 前澳門樂團首席 ¦ Adams / JG Percussion 簽約芸術家<br>
+                    香港中文大學及多所國際院校客席講師
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-8 border-t border-white/10 text-xs flex flex-col md:flex-row justify-between gap-y-2">
+                <div>© 2026 Toolbox Percussion. All rights reserved.</div>
+                <div>專業 · 花術 · 連結</div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tailwind script
+        function initializeTailwind() {
+            document.documentElement.style.setProperty('--accent-gold', '#C9A227');
+        }
+        
+        // Mobile menu
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                const icon = mobileBtn.querySelector('i');
+                if (icon) {
+                    icon.classList.toggle('fa-bars');
+                    icon.classList.toggle('fa-times');
+                }
+            });
+            
+            // Close mobile menu when clicking links
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    const icon = mobileBtn.querySelector('i');
+                    if (icon) {
+                        icon.classList.add('fa-bars');
+                        icon.classList.remove('fa-times');
+                    }
+                });
+            });
+        }
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+        
+        // Initialize
+        initializeTailwind();
+        
+        // Optional: Add subtle animation on scroll for course cards
+        const cards = document.querySelectorAll('.course-card');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        cards.forEach(card => {
+            card.style.opacity = '0.95';
+            card.style.transform = 'translateY(10px)';
+            card.style.transition = 'all 0.5s ease';
+            observer.observe(card);
+        });
+        
+        console.log('%c[Toolbox Percussion] Summer 2026 website loaded successfully.', 'color:#C9A227');
+    </script>
+</body>
+</html>
